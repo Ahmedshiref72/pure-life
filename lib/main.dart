@@ -122,6 +122,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   final int orderId;
+
   MyApp({@required this.orderId});
 
   static final navigatorKey = new GlobalKey<NavigatorState>();
