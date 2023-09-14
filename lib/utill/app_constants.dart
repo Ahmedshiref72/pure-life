@@ -3,7 +3,7 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/language_model.d
 class AppConstants {
   static const String APP_NAME = 'أولاد الصعيدي';
   static const String APP_VERSION = '13.1';
-  static const String BASE_URL = 'alsaidy.onclick-eg.com';
+  static const String BASE_URL = 'https://alsaidy.onclick-eg.com';
   static const String USER_ID = 'userId';
   static const String NAME = 'name';
   static const String CATEGORIES_URI = '/api/v1/categories';

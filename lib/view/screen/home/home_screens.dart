@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: RefreshIndicator(
           color: Colors.white,
-          backgroundColor: Color(0xFF00aeef),
+          backgroundColor: Theme.of(context).primaryColor,
           onRefresh: () async {
             await _loadData(context, true);
             await Provider.of<FlashDealProvider>(context, listen: false)
