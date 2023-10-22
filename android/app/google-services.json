@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:716191849369:android:c3c4d9807ed7dda81dd108",
         "android_client_info": {
-          "package_name": "com.elseady.onclick"
+          "package_name": "com.coupons.onclick"
         }
       },
       "oauth_client": [
@@ -35,7 +35,7 @@
               "client_id": "716191849369-h2prk55dt4gunj73scs38jj2i0ts1v0g.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.elseady.onclick"
+                "bundle_id": "com.coupons.onclick"
               }
             }
           ]

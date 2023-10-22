@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.elseady.onclick"
+    package="com.coupons.onclick"
     android:targetSandboxVersion="1">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -29,7 +29,7 @@
     </queries>
 
     <application
-        android:label="أولاد الصعيدي"
+        android:label="Coupons"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"

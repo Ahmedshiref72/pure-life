@@ -1,4 +1,4 @@
-package com.elseady.onclick
+package com.coupons.onclick
 
 import io.flutter.embedding.android.FlutterActivity
 
