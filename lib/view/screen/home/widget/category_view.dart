@@ -14,44 +14,46 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CategoryProvider>(
       builder: (context, categoryProvider, child) {
-
-        return categoryProvider.categoryList.length != 0 ?
-        GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 5,
-            childAspectRatio: (1/1.3),
-          ),
-          itemCount: isHomePage
-              ? categoryProvider.categoryList.length > 8
-                 ? 8
-                 : categoryProvider.categoryList.length
-              : categoryProvider.categoryList.length,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (BuildContext context, int index) {
-
-            return InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => BrandAndCategoryProductScreen(
-                  isBrand: false,
-                  id: categoryProvider.categoryList[index].id.toString(),
-                  name: categoryProvider.categoryList[index].name,
-                )));
-              },
-              child: CategoryWidget(category: categoryProvider.categoryList[index]),
-            );
-
-          },
-        )
-
-        : CategoryShimmer();
-
+        return categoryProvider.categoryList.length != 0
+            ? Container(
+                height: 250,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 5,
+                    childAspectRatio: (1 / 1.3),
+                  ),
+                  itemCount: isHomePage
+                      ? categoryProvider.categoryList.length > 8
+                          ? 8
+                          : categoryProvider.categoryList.length
+                      : categoryProvider.categoryList.length,
+                  shrinkWrap: true,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => BrandAndCategoryProductScreen(
+                                      isBrand: false,
+                                      id: categoryProvider
+                                          .categoryList[index].id
+                                          .toString(),
+                                      name: categoryProvider
+                                          .categoryList[index].name,
+                                    )));
+                      },
+                      child: CategoryWidget(
+                          category: categoryProvider.categoryList[index]),
+                    );
+                  },
+                ),
+              )
+            : CategoryShimmer();
       },
     );
   }
 }
-
-
-

@@ -32,7 +32,6 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/footer_banne
 import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/home_category_product_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/latest_product_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/main_section_banner.dart';
-import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/products_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/home/widget/recommended_product_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/view_all_product_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/search/search_screen.dart';
@@ -253,6 +252,46 @@ class _HomePageState extends State<HomePage> {
                           BannersView(),
                           SizedBox(height: Dimensions.HOME_PAGE_PADDING),
 
+                          // Featured Products
+                          Consumer<ProductProvider>(
+                              builder: (context, featured, _) {
+                            return featured.featuredProductList != null &&
+                                    featured.featuredProductList.length > 0
+                                ? Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal:
+                                            Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                                        vertical: Dimensions
+                                            .PADDING_SIZE_EXTRA_SMALL),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          bottom:
+                                              Dimensions.PADDING_SIZE_SMALL),
+                                      child: TitleRow(
+                                          title: getTranslated(
+                                              'featured_products', context),
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (_) => AllProductScreen(
+                                                        productType: ProductType
+                                                            .FEATURED_PRODUCT)));
+                                          }),
+                                    ),
+                                  )
+                                : SizedBox();
+                          }),
+
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: Dimensions.HOME_PAGE_PADDING),
+                            child: FeaturedProductView(
+                              scrollController: _scrollController,
+                              isHome: true,
+                            ),
+                          ),
+
                           // Category
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -334,46 +373,6 @@ class _HomePageState extends State<HomePage> {
                                   )
                                 : SizedBox();
                           }),
-
-                          // Featured Products
-                          Consumer<ProductProvider>(
-                              builder: (context, featured, _) {
-                            return featured.featuredProductList != null &&
-                                    featured.featuredProductList.length > 0
-                                ? Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal:
-                                            Dimensions.PADDING_SIZE_EXTRA_SMALL,
-                                        vertical: Dimensions
-                                            .PADDING_SIZE_EXTRA_SMALL),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom:
-                                              Dimensions.PADDING_SIZE_SMALL),
-                                      child: TitleRow(
-                                          title: getTranslated(
-                                              'featured_products', context),
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (_) => AllProductScreen(
-                                                        productType: ProductType
-                                                            .FEATURED_PRODUCT)));
-                                          }),
-                                    ),
-                                  )
-                                : SizedBox();
-                          }),
-
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: Dimensions.HOME_PAGE_PADDING),
-                            child: FeaturedProductView(
-                              scrollController: _scrollController,
-                              isHome: true,
-                            ),
-                          ),
 
                           // Featured Deal
                           Consumer<FeaturedDealProvider>(
@@ -496,7 +495,7 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: Dimensions.HOME_PAGE_PADDING),
 
                           //Category filter
-                          Consumer<ProductProvider>(
+                          /*Consumer<ProductProvider>(
                               builder: (ctx, prodProvider, child) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
@@ -614,11 +613,11 @@ class _HomePageState extends State<HomePage> {
                                     : SizedBox(),
                               ]),
                             );
-                          }),
-                          ProductView(
+                          }),*/
+                          /* ProductView(
                               isHomePage: false,
                               productType: ProductType.NEW_ARRIVAL,
-                              scrollController: _scrollController),
+                              scrollController: _scrollController),*/
                           SizedBox(height: Dimensions.HOME_PAGE_PADDING),
                         ],
                       ),

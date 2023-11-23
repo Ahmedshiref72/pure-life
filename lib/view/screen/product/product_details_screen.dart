@@ -17,7 +17,6 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/product_i
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/product_specification_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/product_title_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/promise_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/qty_details.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/related_product_view.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/review_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/seller_view.dart';
@@ -25,7 +24,6 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/product/widget/youtube_v
 import 'package:flutter_sixvalley_ecommerce/view/screen/wishlist/wishlist_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../../basewidget/show_custom_snakbar.dart';
 import 'faq_and_review_screen.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -149,7 +147,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         ? details
                                             .productDetailsModel.averageReview
                                         : "0"),
-                                CartSheetNew(
+                                /*  CartSheetNew(
                                   product: details.productDetailsModel,
                                   callback: () {
                                     showCustomSnackBar(
@@ -157,7 +155,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         context,
                                         isError: false);
                                   },
-                                ),
+                                ),*/
                                 (details.productDetailsModel?.details != null &&
                                         details.productDetailsModel.details
                                             .isNotEmpty)
